@@ -1,11 +1,11 @@
 // ITERATION 1
 
 function updateSubtotal($product) {
-  const $price = $product.querySelector(".price").querySelector("span");
+  const $price = $product.querySelector(".price span");
   const priceNumber = $price.innerText;
   const $quantity = $product.querySelector("input");
   const quantity = $quantity.valueAsNumber;
-  const $subtotal = $product.querySelector(".subtotal").querySelector("span");
+  const $subtotal = $product.querySelector(".subtotal span");
   const subTotal = priceNumber * quantity;
   $subtotal.innerText = subTotal;
 }
@@ -18,12 +18,10 @@ function calculateAll() {
   // Loop for getting all the <tr class="product"> in our table
   for (let $product of $products) {
     updateSubtotal($product);
-    totalPrice += parseInt(
-      $product.querySelector(".subtotal").querySelector("span").innerText
-    );
+    totalPrice += parseInt($product.querySelector(".subtotal span").innerText);
   }
   // ITERATION 3
-  const $total = document.getElementById("total-value").querySelector("span");
+  const $total = document.getElementById("total-value span");
   $total.innerText = totalPrice;
 }
 
