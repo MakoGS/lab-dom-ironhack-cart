@@ -1,7 +1,11 @@
 // ITERATION 1
 
 function updateSubtotal($product) {
-  // ...
+  const $price = $product.querySelector(".unit");
+  const priceNumber = getNumberFromElement($price);
+  const $quantity = $product.querySelector(".quantity");
+  const quantity = $quantity.valueAsNumber;
+  return priceNumber * quantity;
 }
 
 function calculateAll() {
@@ -11,9 +15,9 @@ function calculateAll() {
   //...
 }
 
-const $calculateTrigger = document.getElementById('calculate');
+const $calculateTrigger = document.getElementById("calculate");
 
-$calculateTrigger.addEventListener('click', calculateAll);
+$calculateTrigger.addEventListener("click", calculateAll);
 
 // ITERATION 4
 
