@@ -1,16 +1,21 @@
 // ITERATION 1
 
 function updateSubtotal($product) {
-  const $price = $product.querySelector(".unit");
-  const priceNumber = getNumberFromElement($price);
-  const $quantity = $product.querySelector(".quantity");
+  const $price = $product.querySelector(".price").querySelector("span");
+  const priceNumber = $price.innerText;
+  const $quantity = $product.querySelector("input");
   const quantity = $quantity.valueAsNumber;
-  return priceNumber * quantity;
+  const $subtotal = $product.querySelector(".subtotal").querySelector("span");
+  const subTotal = priceNumber * quantity;
+  $subtotal.innerText = subTotal;
 }
 
 function calculateAll() {
   // ITERATION 2
-  //...
+  const $products = document.querySelectorAll(".product");
+  for (let $product of $products) {
+    updateSubtotal($product);
+  }
   // ITERATION 3
   //...
 }
