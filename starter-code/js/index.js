@@ -14,6 +14,8 @@ function calculateAll() {
   // ITERATION 2
   let totalPrice = 0;
   const $products = document.querySelectorAll(".product");
+
+  // Loop for getting all the <tr class="product"> in our table
   for (let $product of $products) {
     updateSubtotal($product);
     totalPrice += parseInt(
@@ -30,9 +32,20 @@ const $calculateTrigger = document.getElementById("calculate");
 $calculateTrigger.addEventListener("click", calculateAll);
 
 // ITERATION 4
+window.addEventListener("load", function() {
+  var deleteButtons = document.getElementsByClassName("btn-remove");
+  for (var i = 0; i < deleteButtons.length; i++) {
+    deleteButtons[i].addEventListener("click", deleteProduct);
+  }
+});
 
-function addProductRemoveListener($removeButton) {
-  // ...
+function deleteProduct(event) {
+  const $event = event.currentTarget;
+  const $firstEventParent = $event.parentNode;
+
+  document
+    .getElementsByTagName("tbody")[0]
+    .removeChild($firstEventParent.parentNode);
 }
 
 // ITERATION 5
