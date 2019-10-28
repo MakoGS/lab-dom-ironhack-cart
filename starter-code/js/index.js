@@ -34,15 +34,20 @@ $calculateTrigger.addEventListener("click", calculateAll);
 // ITERATION 4
 window.addEventListener("load", function() {
   var deleteButtons = document.getElementsByClassName("btn-remove");
+
+  //Loop to get all the delete buttons in our shop cart
   for (var i = 0; i < deleteButtons.length; i++) {
     deleteButtons[i].addEventListener("click", deleteProduct);
   }
 });
 
 function deleteProduct(event) {
+  // $event will give us through currentTarget the remove button we are clicking.
   const $event = event.currentTarget;
+
   const $firstEventParent = $event.parentNode;
 
+  //tbdoy is an HTML Coleection so we need to get index 0.
   document
     .getElementsByTagName("tbody")[0]
     .removeChild($firstEventParent.parentNode);
